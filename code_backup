@@ -1,0 +1,61 @@
+import React, { Component } from 'react';
+import { Text, View, StyleSheet, Button } from 'react-native';
+import { Constants } from 'expo';
+
+export default class DevDaysApp extends Component {
+  
+  constructor() {
+    super();
+    this.state = {text: 'Welcome to Dev Days 2017'};
+    this._handleButtonPressDayOne = this._handleButtonPressDayOne.bind(this);
+    this._handleButtonPressDayTwo = this._handleButtonPressDayTwo.bind(this);
+  }
+  
+  _handleButtonPressDayOne = () => {
+    this.setState({text: 'Welcome to Dev Days 2017 Day 1'});
+  };
+  
+  _handleButtonPressDayTwo = () => {
+    this.setState({text: 'Welcome to Dev Days 2017 Day 2'});
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+      
+        <Text style={styles.paragraph}>
+          {this.state.text}
+        </Text>
+        
+        <Button
+          title="Day One"
+          onPress={this._handleButtonPressDayOne}
+        />
+        
+        <Button
+          title="Day Two"
+          onPress={this._handleButtonPressDayTwo}
+        />
+      
+        
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#34495e',
+  },
+});
